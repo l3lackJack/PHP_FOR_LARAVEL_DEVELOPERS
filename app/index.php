@@ -2,22 +2,28 @@
 
 require 'app/helpers.php';
 require 'app/Task.php';
+require 'config.php';
 
+//$user = 'debian-sys-maint';
+//$pass = 'y1LrMYathEWbKfc3';
+//$dsn = 'mysql:host=localhost;dbname=phplaraveldevs';
 
-//$task = new Task(1,'comprar pa','a la panaderia', 0);
-//var_dump($task);
-//var_dump ($_GET['name']); //si usamos el $GET_name podemos obtener el nombre
+$user = $config['database']['user'];
+$pass = $config['database']['password'];
+$type = $config['database']['databasetype'];
+$host = $config['database']['host'];
+$name = $config['database']['host'];
+$dsn = "$type:host=$host;dbname=$name";
 
-$user = 'debian-sys-maint';
-$pass = 'y1LrMYathEWbKfc3';
 
 try {
-    $dbh = new PDO('mysql:host=localhost;dbname=phplaraveldevs', $user, $pass);
+    $dbh = new PDO('m', $user, $pass);
 
 }catch (\Exception $e){
     echo 'Error de connexio a la base de dades';
 }
-$statement = $dbh->prepare('SELECT * FROM tasks;');
+$statement= $dbh->prepare('SELECT * FROM tasks;');
+
 $statement->execute();
 $tasks = $statement->fetchAll(PDD::FECTH_CLASS , 'Task');
 
