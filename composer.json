@@ -1,0 +1,17 @@
+{
+    "name": "code/php_for_laravel_developers",
+    "description": "Json",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Code\\PhpForLaravelDevelopers\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "l3lackJack",
+            "email": "gabrielionuturs@iesebre.com"
+        }
+    ],
+    "require": {}
+}
