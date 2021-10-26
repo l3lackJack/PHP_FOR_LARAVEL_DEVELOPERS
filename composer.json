@@ -3,9 +3,9 @@
     "description": "Json",
     "type": "project",
     "autoload": {
-        "psr-4": {
-            "Code\\PhpForLaravelDevelopers\\": "src/"
-        }
+       "classmap": [
+           "./"
+       ]
     },
     "authors": [
         {
@@ -13,5 +13,7 @@
             "email": "gabrielionuturs@iesebre.com"
         }
     ],
-    "require": {}
+    "require": {
+      "ext-pdo": "*"
+    }
 }

@@ -1,24 +1,36 @@
 <?php
 
-use Framework\Database\Connection;
+namespace framework\Database;
+use App\Models\Task;
+use PDO;
 
 class Database
 {
+    public $config;
 
-public $config;
-private $connection;
-    public function __construct($config,$connection)
+
+    /**
+     * @param $config
+     * @param $connection
+     */
+    public function __construct($config)
     {
-        $this->config =$config;
-        $this->connection= new Connection($config);
+        $this->config = $config;
+        $this->connection = new Connection($config);
     }
 
-    function selectAll($table){
-        return  fetchAllTasks($this->connection->ConnectDB($this->config));
 
+    function selectAll($table) {
+        $dbh = $this->connection->connectDB($this->config);
+        $statement = $dbh->prepare("SELECT * FROM $table;");
+
+        $statement->execute();
+
+        return $statement->fetchAll(PDO::FETCH_CLASS, Task::class);
     }
 
-    function insert(){
-        //TODO
+
+    function insert() {
+        // TODO
     }
 }
