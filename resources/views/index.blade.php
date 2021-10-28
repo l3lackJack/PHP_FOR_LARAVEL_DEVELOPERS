@@ -15,7 +15,17 @@
     </style>
 </head>
 <body>
+<nav>
+    <ul>
+        <li><a href="/tasks.html"> </a>Tasques</li>
+        <li><a href="/users.html"> </a>Users</li>
+        <li><a href="/contact.html"> </a>Contact</li>
+        <li><a href="/about.html"> </a>About</li>
+        <li><a href="/index.php"> </a>Home</li>
+    </ul>
+</nav>
 <header>
+
     <h1><?=$greeting;?></h1>
 
     <table>
