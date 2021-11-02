@@ -2,8 +2,6 @@
 use Framework\App;
 
 $tasks = App::get('database')->selectAll('tasks');
-$users = App::get('database')->selectAll('users');
-//$tasks = Task::selectAll('tasks'); -> Laravel Eloquent
 $greeting = greet();
 
 require '../resources/views/index.blade.php';
