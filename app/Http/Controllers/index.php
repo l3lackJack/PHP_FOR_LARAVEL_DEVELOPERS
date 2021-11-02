@@ -2,7 +2,7 @@
 use Framework\App;
 
 $tasks = App::get('database')->selectAll('tasks');
-$greeting = greet();
+$greeting = "Gabriel Urs";
 
 require '../resources/views/index.blade.php';
 
